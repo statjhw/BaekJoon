@@ -3,8 +3,10 @@
 using namespace std;
 
 int main() {
-    string name;
-    while (getline(cin, name)) {
-        cout << name << endl;
-    }
+    cout << "         ,r'\"7" << endl;
+    cout << "r`-_   ,'  ,/" << endl;
+    cout << " \\. \". L_r'" << endl;
+    cout << "   `~\\/" << endl;
+    cout << "      |" << endl;
+    cout << "      |" << endl;
 }
