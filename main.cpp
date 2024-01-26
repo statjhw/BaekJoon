@@ -3,42 +3,28 @@
 using namespace std;
 
 int main() {
-    int rown, coln;
-    cin >> rown >> coln;
+    int arr[9][9];
 
-    int** m1 = new int*[rown];
-    for (int i = 0; i < rown; i++) {
-        m1[i] = new int[coln];
-    }
-    int** m2 = new int*[rown];
-    for (int i = 0; i < rown; i++) {
-        m2[i] = new int[coln];
-    }
-
-    for (int i = 0; i < rown; i++) {
-        for(int j = 0; j < coln; j++) {
-            cin >> m1[i][j];
+    for (int i = 0; i < 9; i++) {
+        for (int j =0; j < 9; j++) {
+            cin >> arr[i][j];
         }
     }
-    for (int i = 0; i < rown; i++) {
-        for(int j = 0; j < coln; j++) {
-            cin >> m2[i][j];
-        }
-    }
-    for (int i = 0; i < rown; i++) {
-        for(int j = 0; j < coln; j++) {
-            cout << m1[i][j] + m2[i][j] << " ";
-        }
-        cout << endl;
-    }
+    int max = arr[0][0];
+    int max_ir = 0;
+    int max_ic = 0;
 
-    //2배열 힙 메모리 delete과정
-    for (int i=0; i<rown; i++) {
-        delete m1[i];
-        delete m2[i];
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (max <= arr[i][j]) {
+                max = arr[i][j];
+                max_ir = i + 1;
+                max_ic = j + 1;
+            }
+        }
     }
-    delete m1;
-    delete m2;
+    cout << max << endl;
+    cout << max_ir << " " << max_ic;
 }
 
 
