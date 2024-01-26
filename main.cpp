@@ -2,19 +2,44 @@
 #include <string>
 using namespace std;
 
-int find(int g, int b) {
-    if (g == b)
-        return 0;
-    else
-        return g - b;
-}
+
 
 int main() {
-    int good[6] ={1,1,2,2,2,8};
-    int c;
-    for (int i=0; i < 6; i++) {
-        cin >> c;
-        cout << find(good[i], c) << " ";
-    }
+    string str[8] = {"c=","c-","dz=","d-","lj","nj","s=","z="};
+    string word;
+    int count = 0;
 
+    cin >> word;
+
+    for (int i=0; i<word.length(); i++) {
+        bool is_c = false;
+        for (int j=0; j < 8; j++) {
+            if (word[i] == str[j][0]) {
+                if (word.substr(i, str[j].length()) == str[j]) {
+                    count++;
+                    i += (str[j].length()-1);
+                    is_c = true;
+                    break;
+                }
+            }
+        }
+        if (is_c ==false)
+            count++;
+    }
+    cout << count;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
