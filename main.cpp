@@ -3,32 +3,29 @@
 using namespace std;
 
 int main() {
-    int arr[9][9];
+    int map[100][100] = {0,};
+    int n;
+    cin >> n;
 
-    for (int i = 0; i < 9; i++) {
-        for (int j =0; j < 9; j++) {
-            cin >> arr[i][j];
-        }
-    }
-    int max = arr[0][0];
-    int max_ir = 0;
-    int max_ic = 0;
-
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
-            if (max <= arr[i][j]) {
-                max = arr[i][j];
-                max_ir = i + 1;
-                max_ic = j + 1;
+    int a, b;
+    for (int i=0; i<n; i++) {
+        cin >> a >> b;
+        for (int i=0;i<10;i++) {
+            for (int j=0; j<10; j++) {
+                map[a+j][b] = 1;
             }
+            b++;
         }
     }
-    cout << max << endl;
-    cout << max_ir << " " << max_ic;
+    int s = 0;
+    for (int i=0;i<100;i++) {
+        for(int j=0; j<100;j++) {
+            s += map[i][j];
+        }
+    }
+    cout << s;
+
 }
-
-
-
 
 
 
