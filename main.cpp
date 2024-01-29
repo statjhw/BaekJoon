@@ -3,27 +3,42 @@
 #include <cmath>
 using namespace std;
 
+string to10_n(int n, int b);
+string reverse(string str);
+
 int main() {
-    string n;
-    int b;
-
+    int n, b;
     cin >> n >> b;
+    cout << to10_n(n, b);
 
-    int s = 0;
-    int tmp = 0;
-    for (int i =0; i<n.length(); i++) {
-        if (n[i] >= '0' && n[i] <= '9')
-            tmp = n[i] -'0';
-        else {
-            tmp = n[i] - 'A' + 10;
+}
+
+string to10_n(int n, int b)
+{
+    string str;
+    while (n != 0)
+    {
+        int tmp = n % b;
+        if (tmp > 9)
+        {
+            str += tmp - 10 + 'A';
         }
-        s += tmp * pow(b, n.length()-i-1);
+        else
+        {
+            str += '0' + tmp;
+        }
+        n /= b;
     }
-    cout << s;
+
+    return reverse(str);
 }
 
 
+string reverse(string str) {
+    if (str.length() <= 1)
+        return str;
+    else {
+        return reverse(str.substr(1, str.length())) + str.substr(0, 1);
+    }
 
-
-
-
+}
