@@ -1,34 +1,21 @@
 #include <iostream>
 using namespace std;
 
-
-int gcd(int f, int s);
-
 int main()
 {
-    int a, b;
-    cin >> a >> b;
-
-    while (a != 0 || b != 0)
+    int n, k;
+    cin >> n >> k;
+    int count = 0;
+    for (int i=1; i<n+1; i++)
     {
-        if (gcd(a, b) == a)
-            cout << "factor" << endl;
-        else if (gcd(a, b) == b)
-            cout << "multiple" << endl;
-        else
-            cout << "neither" << endl;
-        cin >> a >> b;
+        if (n % i == 0) {
+            count++;
+            if (count == k)
+                cout << i;
+        }
     }
-
-}
-
-
-int gcd(int f, int s)
-{
-    if (s == 0)
-        return f;
-    else
-        return gcd(s, f%s);
+    if (count < k)
+        cout << 0;
 }
 
 
