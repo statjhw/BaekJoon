@@ -1,25 +1,40 @@
 #include <iostream>
 using namespace std;
 
+int is_prime(int);
 int main()
 {
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
     int count = 0;
-    for (int i=1; i<n+1; i++)
+    for (int i=0;i<n;i++)
     {
-        if (n % i == 0) {
-            count++;
-            if (count == k)
-                cout << i;
-        }
+        int a;
+        cin >> a;
+        if (is_prime(a)) count++;
     }
-    if (count < k)
-        cout << 0;
+    cout << count;
 }
 
+int is_prime(int n)
+{
+    bool is = true;
+    if (n == 1)
+        is = false;
 
-
+    if (n > 2)
+    {
+        for (int i = 2; i < n; i++)
+        {
+            if (n % i == 0)
+            {
+                is = false;
+                break;
+            }
+        }
+    }
+    return is;
+}
 
 
 
