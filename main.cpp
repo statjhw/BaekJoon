@@ -1,32 +1,51 @@
 #include <iostream>
-#include <string>
-#include <cmath>
 using namespace std;
 
-void exchange(int c);
 
-int main() {
-    int n;
-    int ex;
-    cin >> n;
-    for (int i=0; i < n; i++)
+int gcd(int f, int s);
+
+int main()
+{
+    int a, b;
+    cin >> a >> b;
+
+    while (a != 0 || b != 0)
     {
-        cin >> ex;
-        exchange(ex);
-        cout << endl;
+        if (gcd(a, b) == a)
+            cout << "factor" << endl;
+        else if (gcd(a, b) == b)
+            cout << "multiple" << endl;
+        else
+            cout << "neither" << endl;
+        cin >> a >> b;
     }
+
 }
 
-void exchange(int c) {
-    int arr[4] = {25, 10, 5, 1};
-    for (int i=0;i<4;i++)
-    {
-        int d = 0;
-        while (c >= arr[i])
-        {
-            d++;
-            c -= arr[i];
-        }
-        cout << d << " ";
-    }
+
+int gcd(int f, int s)
+{
+    if (s == 0)
+        return f;
+    else
+        return gcd(s, f%s);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
