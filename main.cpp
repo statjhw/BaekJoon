@@ -1,47 +1,38 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-//int is_prime(int);
-//
-//int main()
-//{
-//    int n;
-//    cin >> n;
-//    if (n == 1){}
-//    else {
-//        while (!is_prime(n)) {
-//            for (int i = 2; i < n; i++) {
-//                if (n % i == 0) {
-//                    cout << i << endl;
-//                    n /= i;
-//                    break;
-//                }
-//            }
-//        }
-//        cout << n;
-//    }
-//}
-//
-//int is_prime(int n)
-//{
-//    bool is = true;
-//    if (n == 1)
-//        is = false;
-//
-//    if (n > 2)
-//    {
-//        for (int i = 2; i * i <= n; i++)
-//        {
-//            if (n % i == 0)
-//            {
-//                is = false;
-//                break;
-//            }
-//        }
-//    }
-//    return is;
-//}
+int main()
+{
+    int x1, x2, x3, y1, y2, y3;
+    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
 
+    int arr[3][2] = {{x1,y1},
+                      {x2,y2},
+                      {x3,y3}};
+
+
+    int find_x = arr[0][0];
+    int find_y = arr[0][1];
+
+    if (find_x == arr[1][0])
+    {
+        find_x = arr[2][0];
+    }
+    else if (find_x == arr[2][0])
+    {
+        find_x = arr[1][0];
+    }
+    if (find_y == arr[1][1])
+    {
+        find_y = arr[2][1];
+    }
+    else if (find_y == arr[2][1]) {
+        find_y = arr[1][1];
+    }
+
+    cout << find_x << " " << find_y;
+}
 
 
 
