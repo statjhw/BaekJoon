@@ -1,41 +1,37 @@
 #include <iostream>
-#include <cmath>
+
 using namespace std;
+
+int max(int, int);
+int max(int, int, int);
 
 int main()
 {
-    int x1, x2, x3, y1, y2, y3;
-    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+    int n1, n2, n3;
+    cin >> n1 >> n2 >> n3;
 
-    int arr[3][2] = {{x1,y1},
-                      {x2,y2},
-                      {x3,y3}};
-
-
-    int find_x = arr[0][0];
-    int find_y = arr[0][1];
-
-    if (find_x == arr[1][0])
+    if (((n1 < n2 + n3) && (n2 < n1 + n3) && (n3 < n1 + n2))) //삼각형이 됨
     {
-        find_x = arr[2][0];
+        cout << n1 + n2 + n3;
     }
-    else if (find_x == arr[2][0])
+    else
     {
-        find_x = arr[1][0];
-    }
-    if (find_y == arr[1][1])
-    {
-        find_y = arr[2][1];
-    }
-    else if (find_y == arr[2][1]) {
-        find_y = arr[1][1];
+        int m = max(n1, n2, n3);
+        cout << (n1 + n2 + n3 - m) + (n1 + n2 + n3 -m - 1);
     }
 
-    cout << find_x << " " << find_y;
 }
-
-
-
+int max(int a, int b)
+{
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+int max(int a, int b, int c)
+{
+    return max(max(a,b), c);
+}
 
 
 
